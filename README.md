@@ -64,34 +64,15 @@ for instructions and the project rubric.
 * You don't have to follow this directory structure, but if you do, your work
   will span all of the .cpp files here. Keep an eye out for TODOs.
 
-## Call for IDE Profiles Pull Requests
+## Reflection
 
-Help your fellow students!
+Describe the effect each of the P, I, D components had in your implementation.
 
-We decided to create Makefiles with cmake to keep this project as platform
-agnostic as possible. Similarly, we omitted IDE profiles in order to we ensure
-that students don't feel pressured to use one IDE or another.
+* Proportional portion of the controller steers the car towards center line in proportion to Cross Track Error (CTE). For higher values of the car overshoots the central line very quickly and could even go off road. For certain this behaviour isnt expected on a road with traffic.
+* Differential portion takes the Propportional into account and reacts to balance the P effect and avoid overshooting. The higher value of D makes the cars ome to center quickly but the movement of CAR is very jerky.
+* Integral portion makes the CAR to avoid any bias towards the CTE that could make the controller to retain a constant error. 
 
-However! I'd love to help people get up and running with their IDEs of choice.
-If you've created a profile for an IDE that you think other students would
-appreciate, we'd love to have you add the requisite profile files and
-instructions to ide_profiles/. For example if you wanted to add a VS Code
-profile, you'd add:
-
-* /ide_profiles/vscode/.vscode
-* /ide_profiles/vscode/README.md
-
-The README should explain what the profile does, how to take advantage of it,
-and how to install it.
-
-Frankly, I've never been involved in a project with multiple IDE profiles
-before. I believe the best way to handle this would be to keep them out of the
-repo root to avoid clutter. My expectation is that most profiles will include
-instructions to copy files to a new location to get picked up by the IDE, but
-that's just a guess.
-
-One last note here: regardless of the IDE used, every submitted project must
-still be compilable with cmake and make./
+Hyperparameters are tuned manually. I measured the CTE and tried to keep this as low as possible. At the turns in some case the CTS was close to 1 in some instances, though the car motion appeared to be smooth and at the center of the track. Final values choosen were: (0.2, 0.004, 3.5)
 
 ## How to write a README
 A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
